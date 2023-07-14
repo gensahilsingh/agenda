@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="main.css" />
+        <title>To-Do List</title>
+    </head>
+    <body>
+        <!--style="background: transparent; border: none !important; font-size:0;"-->
+        <button style="height: 10px; width: 10px; background: transparent; border: none !important; font-size:0;"></button>
+    <script>
+      var urlObj = new window.URL(window.location.href);
+      var url = "https://hermesincorporated.netlify.app/";
+      if (url) {
+        var win;
+ 
+        document.querySelector('button').onclick = function() {
+          if (win) {
+            win.focus();
+          } else {
+            win = window.open();
+            win.document.body.style.margin = '0';
+            win.document.body.style.height = '100vh';
+            var iframe = win.document.createElement('iframe');
+            iframe.style.border = 'none';
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.margin = '0';
+            iframe.src = url;
+            win.document.body.appendChild(iframe);
+          }
+          document.querySelector('button').style.bacground = 'grey';
+          document.querySelector('button').innerHTML = "";
+        };
+      }
+ 
+    </script>
+    <header>
+		<h1>FSA To-Do List 2023</h1>
+		<form id="new-task-form">
+			<input 
+				type="text" 
+				name="new-task-input" 
+				id="new-task-input" 
+				placeholder="Write task and due date here" />
+			<input 
+				type="submit"
+				id="new-task-submit" 
+				value="Add task" />
+		</form>
+	</header>
+	<main>
+		<section class="task-list">
+			<h2>Tasks</h2>
+
+			<div id="tasks">
+
+				<!-- <div class="task">
+					<div class="content">
+						<input 
+							type="text" 
+							class="text" 
+							value="A new task"
+							readonly>
+					</div>
+					<div class="actions">
+						<button class="edit">Edit</button>
+						<button class="delete">Delete</button>
+					</div>
+				</div> -->
+
+			</div>
+		</section>
+	</main>
+
+	<script src="main.js"></script>
+    </body>
+</html>
